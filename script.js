@@ -13,7 +13,7 @@ let footer = document.getElementsByTagName("footer")[0];
 let clickCounter = 1;
 
 footer.addEventListener("click", function() {
-    console.log("**clique sur le footer**");
+    console.log("**clic sur le footer**");
     console.log("clic numéro " + clickCounter);
     ++clickCounter
 });
@@ -38,7 +38,7 @@ let menuButton = document.getElementsByClassName("navbar-toggler")[0];
 let navbarHeader = document.getElementById("navbarHeader");
 
 menuButton.addEventListener("click", function() {
-	console.log("**clique sur le menu**");
+	console.log("**clic sur le menu**");
     navbarHeader.classList.toggle("collapse");
 });
 
@@ -62,7 +62,7 @@ let firstCard = document.getElementsByClassName("card")[0];
 let editButton1 = firstCard.getElementsByClassName("btn-outline-secondary")[0];
 
 editButton1.addEventListener("click", function() {
-	console.log("**clique sur Edit du Card 1**");
+	console.log("**clic sur Edit du Card 1**");
 	console.log("changement du texte en rouge");
     firstCard.style ="color: red";
 });
@@ -89,11 +89,11 @@ let editButton2 = secondCard.getElementsByClassName("btn-outline-secondary")[0];
 editButton2.addEventListener("click", function() {
     if (secondCard.style.color === 'green'){ 
 		secondCard.style.color = '' ; 
-		console.log("**clique sur Edit du Card 2**");
+		console.log("**clic sur Edit du Card 2**");
 		console.log("changement du texte en noir");
 	}else {
 		secondCard.style.color = 'green';
-		console.log("**clique sur Edit du Card 2**");
+		console.log("**clic sur Edit du Card 2**");
 		console.log("changement du texte en vert");
 	}
 });
@@ -121,11 +121,11 @@ navbar.addEventListener("dblclick", function() {
 
     if (bootstrap.disabled === false){ 
 		bootstrap.disabled = true ; 
-		console.log("**double-clique sur la navbar**");
+		console.log("**double-clic sur la navbar**");
 		console.log("désactivation de Bootstrap");
 	}else {
 		bootstrap.disabled = false;
-		console.log("**double-clique sur la navbar**");
+		console.log("**double-clic sur la navbar**");
 		console.log("activation de Bootstrap");
 	}
 });
@@ -158,7 +158,7 @@ for (let n=0 ; n<cards.length ; n++) {
     
     viewButton.addEventListener("mouseover", function() {
 
-    	console.log(`passage du pointeur sur le bouton view de la carte ${n}`);
+    	console.log(`**passage du pointeur sur le bouton view de la carte ${n}**`);
 
         let cardText = card.getElementsByClassName("card-text")[0];
 	    cardText.classList.toggle("collapse");
@@ -171,5 +171,31 @@ for (let n=0 ; n<cards.length ; n++) {
         	cardImg.style.width = "20%";
         	console.log(`affichage réduit de la carte`);
     	}
+
     });
 }
+
+
+
+
+
+
+
+
+
+/* FONCTIONNALITÉ 7 */
+
+//On initialise une variable qui récupère le bouton flèche droite
+//On initialise une variable qui récupère les colonnes de cartes
+//On créé une fonction associant l'event 'click' à la rotation des cartes
+
+let rightArrowButton = document.getElementsByClassName("jumbotron")[0].getElementsByClassName("btn-secondary")[0];
+
+let column = document.getElementsByClassName("col-md-4");
+
+rightArrowButton.addEventListener("click", function() {
+    let parent = column[0].parentNode;
+    parent.insertBefore(column[column.length - 1], column[0]);
+    console.log("**clic sur la flèche grise**");
+    console.log("rotation des cartes dans le sens horaire");
+});
