@@ -199,3 +199,25 @@ rightArrowButton.addEventListener("click", function() {
     console.log("**clic sur la flèche grise**");
     console.log("rotation des cartes dans le sens horaire");
 });
+
+
+
+
+
+
+
+
+/* FONCTIONNALITÉ 8 */
+
+//On initialise une variable qui récupère le bouton flèche gauche
+//On créé une fonction associant l'event 'click' à la rotation des cartes
+
+let leftArrowButton = document.getElementsByClassName("jumbotron")[0].getElementsByClassName("btn-primary")[0];
+
+leftArrowButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    let parent = column[0].parentNode;
+    parent.appendChild(column[0]);
+    console.log("**clic sur la flèche bleue**");
+    console.log("rotation des cartes dans le sens anti-horaire");
+});
