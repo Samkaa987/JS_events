@@ -121,11 +121,55 @@ navbar.addEventListener("dblclick", function() {
 
     if (bootstrap.disabled === false){ 
 		bootstrap.disabled = true ; 
-		console.log("**double clique sur la navbar**");
+		console.log("**double-clique sur la navbar**");
 		console.log("désactivation de Bootstrap");
 	}else {
 		bootstrap.disabled = false;
-		console.log("**double clique sur la navbar**");
+		console.log("**double-clique sur la navbar**");
 		console.log("activation de Bootstrap");
 	}
 });
+
+
+
+
+
+
+
+
+
+/* FONCTIONNALITÉ 6 */
+
+
+//On initialise une variable qui récupère un array de cartes
+//On initialise une variable qui effectue une boucle sur l'ensemble des cartes du array
+
+//Dans cette boucle on définit la carte en train d'être analysée
+//Dans cette boucle on récupère le bouton view de la carte
+//Dans cette boucle on créé une fonction associant l'event 'mouseover' à la modification de la carte en question
+
+let cards = document.getElementsByClassName("card");
+
+for (let n=0 ; n<cards.length ; n++) {
+    
+    let card = cards[n];
+
+    let viewButton = card.getElementsByClassName("btn-success")[0];
+    
+    viewButton.addEventListener("mouseover", function() {
+
+    	console.log(`passage du pointeur sur le bouton view de la carte ${n}`);
+
+        let cardText = card.getElementsByClassName("card-text")[0];
+	    cardText.classList.toggle("collapse");
+
+	    let cardImg = card.getElementsByClassName("card-img-top")[0];
+	    if (cardImg.style.width === "20%") {
+        	cardImg.style.width = "";
+        	console.log(`affichage normal de la carte`);
+    	} else {
+        	cardImg.style.width = "20%";
+        	console.log(`affichage réduit de la carte`);
+    	}
+    });
+}
