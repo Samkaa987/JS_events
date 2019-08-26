@@ -214,10 +214,61 @@ rightArrowButton.addEventListener("click", function() {
 
 let leftArrowButton = document.getElementsByClassName("jumbotron")[0].getElementsByClassName("btn-primary")[0];
 
-leftArrowButton.addEventListener("click", function(e) {
-    e.preventDefault();
+leftArrowButton.addEventListener("click", function(button) {
+    button.preventDefault();
     let parent = column[0].parentNode;
     parent.appendChild(column[0]);
     console.log("**clic sur la flèche bleue**");
     console.log("rotation des cartes dans le sens anti-horaire");
+});
+
+
+
+
+
+
+
+
+
+/* FONCTIONNALITÉ 9 */
+
+//On initialise une variable qui récupère le logo
+//On initialise une variable qui récupère le body
+//On créé une fonction définissant les différents keypress
+//Ajout de l'évènement keypress sur le logo
+
+let logo = document.getElementsByClassName("navbar-brand")[0];
+
+let body = document.body;
+
+logo.addEventListener('keypress', function(e){
+
+	switch (e.key) {
+	    case "a":
+	        body.classList = "";
+	        body.classList.add("col-4");
+	        console.log("**appuie sur la touche A**");
+    		console.log("affichage à gauche de l'écran");
+	        break;
+	    case "y":
+	        body.classList = "";
+	        body.classList.add("col-4");
+	        body.classList.add("offset-4");
+	        console.log("**appuie sur la touche Y**");
+    		console.log("affichage au milieu de l'écran");
+	        break;
+	    case "p":
+	        body.classList = "";
+	        body.classList.add("col-4");
+	        body.classList.add("offset-8");
+	        console.log("**appuie sur la touche P**");
+    		console.log("affichage à droite de l'écran");
+	        break;
+	    case "b":
+	        body.classList = "";
+	        console.log("**appuie sur la touche B**");
+    		console.log("affichage normal de l'écran");
+	        break;
+  	}
+
 });
